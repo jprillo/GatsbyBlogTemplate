@@ -2,6 +2,9 @@ import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout.js'
+import Hero from '../components/hero'
+import Mission from '../components/fiftyfiftyimage'
+import CardRow from '../components/cardrow'
 
 
 
@@ -9,13 +12,20 @@ import Layout from '../components/layout.js'
 const IndexPage = ({data}) => {
   return (
     <main >
-      <Helmet title="Gatsby V3 Starter" defer={false} />
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,700;1,300&display=swap" rel="stylesheet"/>
+        
+        </Helmet> 
       <Layout>
       <title>Home Page</title>
-      <h1>
-        Gatsby. LET'S GOOOOOOOO!!!!!!!!       
-      </h1>
-     
+      <Hero title="Gatsby Blog Starter" secondaryTitle= "with Styled Components" heroParagraph="This is a gatsby starter with few dependancies and styled with styled components" primaryButton = "Code" primaryLink="#" secondaryLink="#" secondaryButton="Contact"/>
+      <Mission/>
+      <CardRow text="this is kind ofn insane"></CardRow>
+    
      
      
             <h4>{data.allMarkdownRemark.totalCount} Posts</h4>

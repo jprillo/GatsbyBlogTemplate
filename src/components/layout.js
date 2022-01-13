@@ -1,8 +1,12 @@
 import React from 'react';
-import Navbar from './navbar.js'
+import NavBar from './navbar'
 import Footer from './footer.js'
+import { ThemeProvider } from "styled-components";
+import { lightMode, GlobalStyles } from "../themes/theme.js";
 
 import {StaticQuery, graphql} from 'gatsby'
+
+
 
 
 
@@ -26,15 +30,21 @@ const Layout = ({ children }) => (
         }
       `}
       render={data => (
+        <ThemeProvider theme={lightMode}>
+        <GlobalStyles />
+ 
         <React.Fragment>
-   
-  <Navbar data={data}></Navbar>      
+      <NavBar data = {data}></NavBar>
+      
           <div style={{minHeight: "80vh"}}>
             {children}
             
           </div>
           <Footer/>
+         
         </React.Fragment>
+  
+        </ThemeProvider>
       )}
     />
   )
